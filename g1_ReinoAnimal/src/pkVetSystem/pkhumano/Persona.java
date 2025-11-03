@@ -1,5 +1,56 @@
 package pkVetSystem.pkhumano;
 
 public abstract class Persona {
+    
+    private String cedula;
+    private String nombre;
+    private String apellido;
+
+    public Persona(String cedula, String nombre, String apellido) {
+        setCedula(cedula);
+        setNombre(nombre);
+        setApellido(apellido);
+    }
+
+    public Persona() {
+        setCedula(cedula);
+        setApellido(apellido);
+    }
+
+    public boolean validarCedula(String cedula) {
+        if (cedula != null && cedula.matches("\\d{10}")) {
+            return true;
+        }
+        return false;
+    }
+
+    public String presentar() {
+        return "Hola, mi nombre es " + getNombre() + " " + getApellido() + " y mi cédula es " + getCedula() + ".";
+    }
+
+
+
+
+    public String getCedula() {
+        return cedula;
+    }
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public String getApellido() {
+        return apellido;
+    }
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }       
+
+
+
 
 }
