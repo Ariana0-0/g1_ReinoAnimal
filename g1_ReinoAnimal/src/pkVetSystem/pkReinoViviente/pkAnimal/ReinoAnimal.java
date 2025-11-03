@@ -1,5 +1,12 @@
 package pkVetSystem.pkReinoViviente.pkAnimal;
 
-public abstract class ReinoAnimal {
+import pkVetSystem.pkReinoViviente.SerVivo;
+
+public abstract class ReinoAnimal extends SerVivo {
+
+    public ReinoAnimal(String nombre, Integer edad, Float peso) {
+        super(nombre, edad, peso);
+        
+    }
 
 }
