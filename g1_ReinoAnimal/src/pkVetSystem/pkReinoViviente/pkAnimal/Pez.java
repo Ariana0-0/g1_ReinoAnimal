@@ -1,8 +1,9 @@
 package pkVetSystem.pkReinoViviente.pkAnimal;
 
 public abstract class Pez extends AnimalVertebrado{
-    public Pez(String nombre, int edad, Float peso) {
-        super(nombre, edad, peso);
+
+    public Pez(String nombre, int edad, Float peso, String especie) {
+        super(nombre, edad, peso, especie);
     }
 
     public void tragar() {
