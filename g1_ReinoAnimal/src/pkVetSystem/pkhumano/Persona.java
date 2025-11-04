@@ -12,7 +12,7 @@ public abstract class Persona {
         setApellido(apellido);
     }
 
-    public Persona() {
+    public Persona(String nombre, String apellido) {
         setCedula(cedula);
         setApellido(apellido);
     }
@@ -27,8 +27,6 @@ public abstract class Persona {
     public String presentar() {
         return "Hola, mi nombre es " + getNombre() + " " + getApellido() + " y mi cédula es " + getCedula() + ".";
     }
-
-
 
 
     public String getCedula() {
