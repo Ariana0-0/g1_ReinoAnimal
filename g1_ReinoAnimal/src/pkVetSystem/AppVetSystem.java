@@ -4,6 +4,9 @@ import pkVetSystem.pkhumano.Veterinario;
 import pkVetSystem.pkReinoViviente.pkAnimal.Camaleon;
 import pkVetSystem.pkReinoViviente.pkAnimal.Hiena;
 import pkVetSystem.pkReinoViviente.pkAnimal.PezPayaso;
+
+import java.util.Scanner;
+
 import pkVetSystem.pkReinoViviente.pkAnimal.AnimalVertebrado;
 
 
@@ -15,7 +18,8 @@ public class AppVetSystem {
     }
 
     public void inicializar(){
-        
+        Scanner sc = new Scanner(System.in);
+
         //Instanciar animales
         Camaleon camaleon = new Camaleon("Federico", 3, 300.5f, "Reptil", "Verde Oscuro");
         Hiena hiena = new Hiena("Alfonso", 7, 65.0f, "Mamifero");
@@ -28,8 +32,25 @@ public class AppVetSystem {
         camaleon.treparRama(hiena);
 
         //Instanciar veterinario
-        Veterinario vet = new Veterinario("1234567890","Juan","Pérez");
-        vet.setClave("JuanVet","clave123");
+        Veterinario vet = new Veterinario("1234567890","Juan","Pérez", "JuanVet","clave123" );
+        
+        int intentos = 3;
+        boolean accesoConcedido = false;
+
+        while (intentos > 0 && !accesoConcedido) {
+            accesoConcedido = vet.iniciarSesion(sc);
+            if (!accesoConcedido) {
+                intentos--;
+                if (intentos > 0) {
+                    System.out.println("Intentos restantes: " + intentos + "\n");
+                } else {
+                    System.out.println("Ha superado el número máximo de intentos. Acceso denegado.");
+                    sc.close();
+                    return;
+                }
+            }
+        }
+        System.out.println("\n");
 
         vet.entrarCentroConservacion();
         vet.registrarAnimal(camaleon);
@@ -45,6 +66,7 @@ public class AppVetSystem {
     
 
 
+    sc.close();
     }
     private void atenderAnimalConReporte(Veterinario vet, AnimalVertebrado animal) {
         System.out.println("\n");

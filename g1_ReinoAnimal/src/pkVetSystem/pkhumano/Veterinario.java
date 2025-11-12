@@ -1,5 +1,7 @@
 package pkVetSystem.pkhumano;
 
+import java.util.Scanner;
+
 import pkVetSystem.pkReinoViviente.pkAnimal.AnimalVertebrado;
 import pkVetSystem.pkReinoViviente.pkAnimal.PezPayaso;
 
@@ -9,21 +11,26 @@ public class Veterinario extends Persona {
     private String password;
     private int animalesAtendidos = 0;
         
-    public Veterinario(String nombre, String apellido) {
-        super (nombre, apellido);
+    public Veterinario(String cedula, String nombre, String apellido, String login, String password) {
+        super(cedula, nombre, apellido);
+        this.login = login;
+        this.password = password;
     }
 
-    public Veterinario(String cedula, String nombre, String apellido) {
-      super(cedula, nombre, apellido);
-    }
+    public boolean iniciarSesion(Scanner sc) {
+        System.out.println("\n--- INICIO DE SESIÓN DEL VETERINARIO ---");
+        System.out.print("Usuario: ");
+        String user = sc.nextLine();
+        System.out.print("Contraseña: ");
+        String pass = sc.nextLine();
 
-    public boolean setClave(String login, String password) {
-        if (login != null && password != null) {
-            setLogin(login);
-            setPassword(password);
+        if (user.equals(this.login) && pass.equals(this.password)) {
+            System.out.println("Inicio de sesión exitoso. ¡Bienvenida, " + getNombre() + "!");
             return true;
+        } else {
+            System.out.println("Error: usuario o contraseña incorrectos.");
+            return false;
         }
-        return false;
     }
 
     public void entrarCentroConservacion() {
