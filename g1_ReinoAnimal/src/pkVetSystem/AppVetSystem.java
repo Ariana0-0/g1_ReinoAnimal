@@ -4,6 +4,8 @@ import pkVetSystem.pkhumano.Veterinario;
 import pkVetSystem.pkReinoViviente.pkAnimal.Camaleon;
 import pkVetSystem.pkReinoViviente.pkAnimal.Hiena;
 import pkVetSystem.pkReinoViviente.pkAnimal.PezPayaso;
+import pkVetSystem.pkReinoViviente.pkAnimal.Bufalo;
+import pkVetSystem.pkReinoViviente.pkAnimal.Buho;
 
 import java.util.Scanner;
 
@@ -24,12 +26,19 @@ public class AppVetSystem {
         Camaleon camaleon = new Camaleon("Federico", 3, 300.5f, "Reptil", "Verde Oscuro");
         Hiena hiena = new Hiena("Alfonso", 7, 65.0f, "Mamifero");
         PezPayaso pezPayaso = new PezPayaso("Nemo", 2, 0.2f, "Pez");
+        Bufalo bufalo = new Bufalo("Pepe", 5, 700.0f, "Mamífero");
+        Buho buho = new Buho("Otto", 4, 1.5f, "Ave");
 
 
         //Interaccion del Camaleon
         camaleon.detectarAmenaza(hiena);
         camaleon.cambiarColor("Celeste", hiena);
         camaleon.treparRama(hiena);
+    
+        //Interaccion del Búho
+        buho.cazar(pezPayaso);
+        buho.ulular();
+        buho.girarCabeza();
 
         //Interaccion de la Pez Payaso
         pezPayaso.estaNadando();
@@ -59,10 +68,15 @@ public class AppVetSystem {
         vet.registrarAnimal(camaleon);
         vet.registrarAnimal(hiena);
         vet.registrarAnimal(pezPayaso);
+        vet.registrarAnimal(bufalo);
+        vet.registrarAnimal(buho);
         
         atenderAnimalConReporte(vet, camaleon);
         atenderAnimalConReporte(vet, hiena);
         atenderAnimalConReporte(vet, pezPayaso);
+        atenderAnimalConReporte(vet, bufalo);
+        atenderAnimalConReporte(vet, buho);
+
 
         //Mostrar total de animales atendidos
         System.out.println("Total de animales atendidos por el veterinario " + vet.getNombre() + ": " + vet.getAnimalesAtendidos());
