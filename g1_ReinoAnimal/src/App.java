@@ -1,6 +1,12 @@
+import pkVetSystem.AppVetSystem;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        
+
+        AppVetSystem app = new AppVetSystem();
+        app.inicializar();
+
     }
 
 
