@@ -2,7 +2,6 @@ package pkVetSystem;
 
 import pkVetSystem.pkReinoViviente.pkAnimal.Camaleon;
 import pkVetSystem.pkReinoViviente.pkAnimal.Hiena;
-import pkVetSystem.pkReinoViviente.pkAnimal.Reptil;
 
 public class AppVetSystem {
     
