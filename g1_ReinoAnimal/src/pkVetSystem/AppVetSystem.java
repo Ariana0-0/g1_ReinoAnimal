@@ -31,7 +31,10 @@ public class AppVetSystem {
         camaleon.cambiarColor("Celeste", hiena);
         camaleon.treparRama(hiena);
 
-        //Instanciar veterinario
+        //Interaccion de la Pez Payaso
+        pezPayaso.estaNadando();
+        pezPayaso.comer();
+
         Veterinario vet = new Veterinario("1234567890","Juan","Pérez", "JuanVet","clave123" );
         
         int intentos = 3;
